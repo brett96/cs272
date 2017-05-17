@@ -1,0 +1,38 @@
+In DBModel:
+	- Connection mConnection = createDB();
+	- Statement mStmt = mConnection.createStatement();
+	
+	can use:
+	
+	// OLD WAY:
+	Connection mConnection;
+	Statement mStmt;
+	try
+	{
+		mConnection = createDB();
+		mStmt = mConnection.createStatement();
+	}
+	catch (SQLException e)
+	{
+		
+	}
+	finally
+	{
+		if(mConnection != null)
+			mConnection.close();
+		if(mStmt != null)
+			mStmt.close();	
+	}
+	
+	//NEW WAY (Java 7+): try with resources
+	- Can declare variables implementing closable or auto closable
+	
+	try(Connection mConnection = createDB();
+		Statement mStmt = mConnection.createStatement();)
+	{
+		// Code with resources
+		
+		// JVM automatically takes care of closing all resources
+	}
+	
+	
