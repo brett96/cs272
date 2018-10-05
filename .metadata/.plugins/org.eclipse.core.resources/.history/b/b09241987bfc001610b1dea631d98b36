@@ -1,0 +1,77 @@
+package edu.orangecoastcollege.cs272.ic04;
+
+import java.util.ArrayList;
+
+/**
+ * The <code>Demo</code> class tests various features of interfaces and abstract classes.
+ * 
+ * Specifically, we are creating three lists of <code>AnimalTrait</code>, <code>Edible</code>, 
+ * and <code>Fruit</code> types, then populating them with objects that can be elements of the lists.
+ * 
+ * Finally, we loop through each list and polymorphically print the object to the console using the overriden
+ * <code>toString</code> methods.
+ * 
+ * @author Michael Paulding
+ * @version 1.0
+ */
+public class Demo {
+
+	/**
+	 * The <code>main</code> method is the entry point for this class and provides the functionality specified in the class description
+	 * above.
+	 * 
+	 * @param args Command line arguments (unused in this class).
+	 */
+	public static void main(String[] args) {
+		
+		// TODO:  Uncomment the code below when you have written the required interfaces, abstract class and concrete classes.
+		ArrayList<AnimalTraits> animalsList = new ArrayList<>();		
+		ArrayList<Edible> ediblesList = new ArrayList<>();
+		ArrayList<Fruit> fruitsList = new ArrayList<>();
+
+		Tiger tigger = new Tiger("Tigger", "Bengal" );
+		Tiger tony = new Tiger("Tony", "Siberian");
+		
+		Apple grannySmith = new Apple("Granny Smith", 107, "Green");
+		Apple mac = new Apple("Macintosh", 70, "Reddish");
+		
+		Orange navel = new Orange("Navel", 62);
+		Orange tangerine = new Orange("Tangerine", 50);
+		
+		Chicken leghorn = new Chicken("Leghorn");
+		Chicken orpington = new Chicken("Orpington");
+		
+		// TODO:  Add the objects above to the List(s) they can be an element of.
+		animalsList.add(tigger);
+		animalsList.add(tony);
+		animalsList.add(leghorn);
+		animalsList.add(orpington);
+		
+		ediblesList.add(grannySmith);
+		ediblesList.add(mac);
+		ediblesList.add(navel);
+		ediblesList.add(tangerine);
+		ediblesList.add(leghorn);
+		ediblesList.add(orpington);
+		
+		fruitsList.add(grannySmith);
+		fruitsList.add(mac);
+		fruitsList.add(navel);
+		fruitsList.add(tangerine);
+
+		
+		// TODO:  Uncomment the code below to print out the elements of each List
+		System.out.println("~~~Animals List~~~");
+		for (AnimalTraits singleAnimal : animalsList)
+			System.out.println(singleAnimal);
+				
+		System.out.println("\n~~~Edibles List~~~");
+		for (Edible singleEdible : ediblesList)
+			System.out.println(singleEdible);
+		
+		System.out.println("\n~~~Fruits List~~~");
+		for (Fruit singleFruit : fruitsList)
+			System.out.println(singleFruit);
+	}
+
+}

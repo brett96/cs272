@@ -1,0 +1,54 @@
+package edu.orangecoastcollege.cs272.btomita.ic03;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class CatDemo
+{
+    public static void main(String[] args)
+    {
+        // TODO Auto-generated method stub
+        //Declare ArrayList as List but instantiate new ArrayList to facilitate lambda expressions
+        List<Cat> cats = new ArrayList<>();
+        Cat meowth = new Cat("Meowth", "Persian", 21);
+        cats.add(meowth);
+        Cat grumpyCat = new Cat("Grumpy Cat", "Mixed", 5);
+        cats.add(grumpyCat);
+        cats.add(new Cat("Grumpy Cat", "Mixed", 7));
+        cats.add(new Cat("Garfield", "Ginger Tabby", 39));
+        
+        System.out.println("~~Unsorted List~~");
+        for(Cat singleCat : cats)
+        {
+            System.out.println(singleCat);
+        }
+        
+        System.out.println("~~Sorted List~~");
+        Collections.sort(cats);
+        for(Cat singleCat : cats)
+        {
+            System.out.println(singleCat);
+        }
+        
+        // Let's use lamda expressions to filter our catsList based on criteria
+        List<Cat> oldGrumpyCatsList = cats.stream() // makes parallel structure
+                .filter(c -> c.getAge() > 5 && c.getName().toLowerCase().contains("grumpy"))
+                .collect(Collectors.toList());
+        
+        for(Cat singleCat : oldGrumpyCatsList)
+            System.out.println(singleCat);
+        
+        // for each loop as lambda expression to make the cats 1 year old
+        oldGrumpyCatsList.forEach(c -> c.setAge(1)); // -> = predicate : define a local var; extract an element from list, store it in c
+        //Then set the age of that cat to 1
+        
+        // Lambda expression to find Mixed or Persian cats
+        List<Cat> mixedOrPersianCatsList = cats.stream()
+                .filter(c -> c.getBreed().equalsIgnoreCase("Mixed") || c.getBreed().equalsIgnoreCase("Persian"))
+                .collect(Collectors.toList());
+        
+        List<Cat> ageGreaterThan10 = cats.stream().filter(c -> c.getAge() > 10).collect(Collectors.toList());
+        // for each loop as lambda
+        oldGrumpyCatsList.forEach(System.out::println); // Class name :: method name
+    }
+
+}

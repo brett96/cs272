@@ -1,0 +1,14 @@
+
+public class WaterBottle 
+{
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("Int max = " + Integer.MAX_VALUE);
+		System.out.println("Short max = " + Short.MAX_VALUE);
+		System.out.println("Long max = " + Long.MAX_VALUE);
+		System.out.println("Byte max = " + Byte.MAX_VALUE);
+	}
+
+}

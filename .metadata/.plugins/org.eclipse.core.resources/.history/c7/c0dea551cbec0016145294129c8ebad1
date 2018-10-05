@@ -1,0 +1,52 @@
+package edu.orangecoastcollege.cs272.btomita.ic01;
+
+public class Parallelogram extends Shape2D
+{
+	public int base;
+	public int height;
+	
+	public void setBase(int value)
+	{
+		base = value;
+	}
+	
+	public void setHeight(int value)
+	{
+		height = value;
+	}
+	
+	public Parallelogram(int xVal, int yVal, String c, int b, int h)
+	{
+		x = xVal;
+		y = yVal;
+		color = c;
+		base = b;
+		height = h;
+	}
+	
+	public double calculateArea()
+	{
+		return base*height;
+	}
+	
+	public boolean equals(int xVal, int yVal, String c, int b, int h)
+	{
+		if(x == xVal && y == yVal && color == c && base == b && height == h)
+		{
+			return true;
+		}
+		return false;
+	}
+	public void toString(int height, int base)
+	{
+		for(int i = 0; i < height; i++)
+    	{
+	    	for(int j = 0; j < base; j++)
+	    	{
+	    		System.out.print('*');
+	    	}
+	    	System.out.println("  ");
+		}
+		System.out.println("The area of this parallelogram is " + calculateArea() + " square units");
+	}
+}

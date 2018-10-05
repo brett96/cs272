@@ -1,0 +1,63 @@
+package edu.orangecoastcollege.cs272.p02;
+
+import java.util.*;
+
+public class Board 
+{
+	Player mPlayer;
+	List<Rodent> mRodentsList;
+	List<Pellet> mPelletsList;
+	int mRowSize;
+	int mColSize;
+	
+	Player player = new Player();
+	
+	public Board(int rowSize, int colSize, int numRodents)
+	{
+		super();
+		this.mRowSize = rowSize;
+		this.mColSize = colSize;
+		
+		while(numRodents > 0)
+		{
+			Rodent rodent = new Rodent();
+			mRodentsList.add(rodent);
+			numRodents--;
+		}
+	}
+	
+	public void addPellet(int row, int col)
+	{
+		Pellet pellet = new Pellet();
+		mPelletsList.add(pellet);
+	}
+	
+	public boolean isInBounds(int row, int col)
+	{
+		if((row >= 0 && col >= 0) && (row < mRowSize && col < mColSize))
+			return true;
+		return false;
+	}
+	
+	public boolean isPlayerAlive()
+	{
+		if(player != null) return true;
+		return false;
+	}
+	
+	public boolean isGameOver()
+	{
+		if(!isPlayerAlive() || mRodentsList.size() == 0) return true;
+		return false;
+	}
+	
+	public void moveAllCharacters()
+	{
+		player.move(this);
+		
+		for(Rodent rodent : mRodentsList)
+		{
+			
+		}
+	}
+}

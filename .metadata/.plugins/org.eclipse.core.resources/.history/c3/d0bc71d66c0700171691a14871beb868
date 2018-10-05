@@ -1,0 +1,18 @@
+package edu.orangecoastcollege.cs272.p02;
+import java.util.Random;
+
+public class Pellet extends Character 
+{
+	public void move(Board board)
+	{
+		
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "*";
+	}
+	
+	
+}

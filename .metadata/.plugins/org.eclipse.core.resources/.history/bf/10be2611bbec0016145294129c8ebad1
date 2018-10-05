@@ -1,0 +1,53 @@
+package edu.orangecoastcollege.cs272.btomita.ic01;
+
+public class Rectangle extends Shape2D
+{
+	int width;
+    int height;
+    
+    public void setWidth(int value)
+    {
+        width = value;
+    }
+    
+    public int getWidth()
+    {
+    	return width;
+    }
+    
+    public void setHeight(int value)
+    {
+    	height = value;
+    }
+    
+    public Rectangle(int xVal, int yVal, String c, int w, int h)
+    {
+        x = xVal;
+        y = yVal;
+        color = c;
+        width = w;
+        height = h;
+    }
+    
+    public double calculateArea()
+    {
+        return width*height;
+    }
+    
+    public boolean equals()
+    {
+    	return true;
+    }
+    
+    public void toString(int width, int height)
+    {
+    	for(int i = 0; i < height; i++)
+    	{
+	    	for(int j = 0; j < width; j++)
+	    	{
+	    		System.out.print('*');
+	    	}
+	    	System.out.println();
+    	}
+    }
+}

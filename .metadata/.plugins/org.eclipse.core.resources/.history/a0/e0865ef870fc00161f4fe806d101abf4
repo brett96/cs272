@@ -1,0 +1,163 @@
+ import javax.swing.*;
+ import java.awt.*;
+ import java.awt.event.*;
+ import java.util.Random;
+ 
+ public class rps extends JFrame
+ {
+    private JLabel pickL;
+    private JLabel scoreL;
+    private JLabel opponentL;
+    
+    private JTextField scoreTF;
+    private JTextField opponentTF;
+    
+    private JButton rockB;
+    private JButton paperB;
+    private JButton scissorsB;
+    
+    private RockButtonHandler rbHandler;
+    private PaperButtonHandler pbHandler;
+    private ScissorsButtonHandler sbHandler;
+    
+    private static final int WIDTH = 850;
+    private static final int HEIGHT = 800;
+    public static int score = 0;
+    
+    public rps()
+    {
+        pickL = new JLabel("Rock, Paper, or Scissors?", SwingConstants.RIGHT);
+        scoreL = new JLabel("Score: ", SwingConstants.RIGHT);
+        opponentL = new JLabel("Opponent", SwingConstants.RIGHT);
+        
+        opponentTF = new JTextField(500);
+        opponentTF.setEditable(false);
+        scoreTF = new JTextField(500);
+        scoreTF.setEditable(false);
+        
+        rockB = new JButton("Rock");
+        rbHandler = new RockButtonHandler();
+        rockB.addActionListener(rbHandler);
+        
+        paperB = new JButton("Paper");
+        pbHandler = new PaperButtonHandler();
+        paperB.addActionListener(pbHandler);
+        
+        scissorsB = new JButton("Scissors");
+        sbHandler = new ScissorsButtonHandler();
+        scissorsB.addActionListener(sbHandler);
+        
+        setTitle("Rock, Paper, Scissors");
+        
+        Container pane = getContentPane();
+        
+        pane.setLayout(new GridLayout(200, 400));
+        
+        pane.add(pickL);
+        pane.add(rockB);
+        pane.add(paperB);
+        pane.add(scissorsB);
+        pane.add(opponentL);
+        pane.add(opponentTF);
+        pane.add(scoreL);
+        pane.add(scoreTF);
+        
+        setSize(WIDTH, HEIGHT);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    
+    private class RockButtonHandler implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            Random rn = new Random();
+            int x = rn.nextInt(3) + 1;
+            // 1 = rock
+            // 2 = paper
+            // 3 = scissors
+        
+            if(x == 1)
+                opponentTF.setText("Rock");
+            else if(x == 2)
+            {
+                opponentTF.setText("Paper");
+                score--;
+            }
+            else if(x == 3)
+            {
+                opponentTF.setText("Scissors");
+                score++;
+            }
+        
+            String scoreAsString = String.valueOf(score);
+            scoreTF.setText(scoreAsString);
+        }
+    }
+    
+    private class PaperButtonHandler implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            Random rn = new Random();
+            int x = rn.nextInt(3)+1;
+            // 1 = rock
+            // 2 = paper
+            // 3 = scissors
+            
+            if (x == 1)
+            {
+                opponentTF.setText("Rock");
+                score++;
+            }
+            else if(x == 2)
+            {
+                opponentTF.setText("Paper");
+            }
+            else if(x == 3)
+            {
+                opponentTF.setText("Scissors");
+                score--;
+            }
+            
+            String scoreAsString = String.valueOf(score);
+            scoreTF.setText(scoreAsString);
+        }
+    }
+    private class ScissorsButtonHandler implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            Random rn = new Random();
+            int x = rn.nextInt(3)+1;
+            // 1 = rock
+            // 2 = paper
+            // 3 = scissors
+            
+            if (x == 1)
+            {
+                opponentTF.setText("Rock");
+                score--;
+            }
+            else if(x == 2)
+            {
+                opponentTF.setText("Paper");
+                score++;
+            }
+            else if(x == 3)
+            {
+                opponentTF.setText("Scissors");
+            }
+            
+            String scoreAsString = String.valueOf(score);
+            scoreTF.setText(scoreAsString);
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        rps rps = new rps();
+    }
+}
+        
+        

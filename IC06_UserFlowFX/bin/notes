@@ -1,0 +1,29 @@
+History of Java GUIs:
+Java 1 = AWT = Abstract Windowing Toolkit
+	Native look and feel
+	
+Java 4 = Swing = cross platform look
+	no further enhancements
+	
+JavaFX = cross platform, supports audio, video, 2D/3D graphics
+	Desktop apps w/ installers
+	Rich internet apps
+	
+	Stage = window container
+	Scene = inside window/stage
+	Pane = layout
+	Node = component (button/field/labels)
+	
+	Types of nodes:
+		Text box/text field = used for input
+		Labels = used for output (static)
+		Button = used for events (button clicks)
+		
+	Types of panes:
+		GridPane = layout, ordered (column, row)
+		
+	To create JavaFX Application:
+		import javafx.application.Application;
+		public class UserFlowFX extends Application
+		
+Node = parent class of Label, TextField, Button, etc.

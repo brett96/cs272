@@ -1,0 +1,20 @@
+package edu.orangecoastcollege.cs272.btomita.capstone.view;
+
+import edu.orangecoastcollege.cs272.btomita.capstone.controller.Controller;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.web.WebView;
+
+public class ViewYelp 
+{
+	private static Controller controller = Controller.getInstance();
+	@FXML
+	Button backButton;
+	@FXML
+	Button directionButton;
+	@FXML
+	WebView browser = new WebView();
+	@FXML WebView webEngine = browser.getEngine();
+	
+}
+

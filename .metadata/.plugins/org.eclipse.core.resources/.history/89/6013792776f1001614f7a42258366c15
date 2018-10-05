@@ -1,0 +1,55 @@
+package edu.orangecoastcollege.cs272.btomita.ic02;
+
+public class EnergyDrink extends CaffeinatedBeverage
+{
+    public String mFlavor;
+
+    public String getFlavor()
+    {
+        return mFlavor;
+    }
+
+    public void setFlavor(String flavor)
+    {
+        this.mFlavor = flavor;
+    }
+    
+    public EnergyDrink(String mName, int mOunces, double mPrice, String mFlavor)
+    {
+        this.mName = mName;
+        this.mOunces = mOunces;
+        this.mPrice = mPrice;
+        this.mFlavor = mFlavor;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((mFlavor == null) ? 0 : mFlavor.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        EnergyDrink other = (EnergyDrink) obj;
+        if (mFlavor == null)
+        {
+            if (other.mFlavor != null) return false;
+        }
+        else if (!mFlavor.equals(other.mFlavor)) return false;
+        return true;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "[Energy Drink: " + mName +", " + mOunces + " ounces, " + mFlavor + ", $" + mPrice%.2d + "]";
+    }
+    
+}

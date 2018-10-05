@@ -1,0 +1,106 @@
+package edu.orangecoastcollege.cs272.p02;
+
+import java.util.*;
+
+public class Board 
+{
+	Player mPlayer;
+	List<Rodent> mRodentsList;
+	List<Pellet> mPelletsList;
+	int mRowSize;
+	int mColSize;
+	
+	//Player player = new Player();
+	
+	public Board(int rowSize, int colSize, int numRodents)
+	{
+		super();
+		this.mRowSize = rowSize;
+		this.mColSize = colSize;
+		
+		while(numRodents > 0)
+		{
+			Rodent rodent = new Rodent();
+			mRodentsList.add(rodent);
+			numRodents--;
+		}
+	}
+	
+	public void addPellet(int row, int col)
+	{
+		Pellet pellet = new Pellet();
+		mPelletsList.add(pellet);
+	}
+	
+	public boolean isInBounds(int row, int col)
+	{
+		if((row >= 0 && col >= 0) && (row < mRowSize && col < mColSize))
+			return true;
+		return false;
+	}
+	
+	public boolean isPlayerAlive()
+	{
+		if(mPlayer != null) return true;
+		return false;
+	}
+	
+	public boolean isGameOver()
+	{
+		if(!isPlayerAlive() || mRodentsList.size() == 0) return true;
+		return false;
+	}
+	
+	public void moveAllCharacters()
+	{
+		mPlayer.move(this);
+		
+		for(Rodent rodent : mRodentsList)
+		{
+			rodent.move(this);
+			if(rodent.getCol() == mPlayer.getCol() && rodent.getRow() == mPlayer.getRow())
+				mPlayer = null;
+			for(Pellet pellet : mPelletsList)
+			{
+				if(rodent.getCol() == pellet.getCol() && rodent.getRow() == pellet.getRow())
+				{
+					mRodentsList.remove(rodent);
+					mPelletsList.remove(pellet);
+				}
+			}
+		}
+	}
+	
+	public int countRodents(List<Rodent> mRodentsList, int row, int col)
+	{
+		int count = 0;
+		for(Rodent rodent : mRodentsList)
+		{
+			if(rodent.getRow() == row && rodent.getCol() == col) count++;
+		}
+		return count;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String result = "";
+		for(int row = 0; row < mRowSize; row++)
+		{
+			for(int col = 0; col < mColSize; col++)
+			{
+				if(mPlayer.getRow() == row && mPlayer.getCol() == col) 
+				{
+					result+="P";
+					continue;
+				}
+				int rodents = this.countRodents(mRodentsList, row, col);
+				if(rodents == 1) result += "R";
+				else result += rodents;
+			}
+			result+="\n";
+		}
+		
+		return result;
+	}
+}

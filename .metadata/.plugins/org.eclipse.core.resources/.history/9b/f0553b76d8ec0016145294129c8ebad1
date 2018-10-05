@@ -1,0 +1,46 @@
+package edu.orangecoastcollege.cs272.btomita.ic01;
+import java.util.ArrayList;
+
+public class AbstractInheritance
+{
+
+    public static void main(String[] args)
+    {
+        // TODO Auto-generated method stub
+    	ArrayList<Shape2D> shapes = new ArrayList<Shape2D>();
+    	Rectangle rectangle = new Rectangle();
+    	rectangle.setWidth(5);
+    	rectangle.setHeight(4);
+    	rectangle.toString(getWidth(), getHeight());
+    	Triangle triangle = new Triangle(0, 0, "blue", 5, 5);
+    	triangle.toString(5);
+    	Parallelogram parallelogram = new Parallelogram(0, 0, "blue", 20, 10);
+    	parallelogram.toString(20, 10);
+    }
+
+}
+
+//public class Rectangle extends Shape2D
+//{
+//    int width;
+//    int height;
+//    public void setWidth(int value)
+//    {
+//        width = value;
+//    }
+//    public int getWidth()
+//    {
+//        return width;
+//    }
+//    public Rectangle(int x, int y, String color, int width, int height)
+//    {
+//        
+//    }
+//    public double calculateArea();
+//    {
+//        return width*height;
+//    }
+//    public boolean equals()
+//    {
+//    }
+//}

@@ -1,0 +1,174 @@
+package edu.orangecoastcollege.cs272.ic11.test;
+
+import static org.junit.Assert.*;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Arrays;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import edu.orangecoastcollege.cs272.ic11.model.DBModel;
+
+public class TestDBModel {
+
+	private static final String DB_NAME = "cs272_test.db";
+	private static final String TABLE_NAME = "billionaire";
+	private static final String[] FIELD_NAMES = { "id", "name", "age", "gender", "worth", "citizenship", "sector", "political" };
+	private static final String[] FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "INTEGER", "TEXT", "REAL", "TEXT", "TEXT", "INTEGER" };
+	private static final String DATA_FILE = "billionaires.csv";
+	
+	private static DBModel db;
+	
+	private String[] values;
+	
+	// Defines variables, resources, etc
+	// Static method, so only executes once before all testing begins
+	// Anything you need to setup before testing, do it here
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception 
+	{
+		// Instantiate our database
+		db = new DBModel(DB_NAME, TABLE_NAME, FIELD_NAMES, FIELD_TYPES);
+	}
+
+	// Cleans up any open resources
+	// Static method, so only executes once at the end of all testing
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception 
+	{
+		db.close();
+	}
+
+	// Executed before each individual test
+	@Before
+	public void setUp() throws Exception 
+	{
+		values = new String[] { "1", "Test Person", "100", "male", "2.5", "united states", "churros", "1"};
+	}
+
+	// Executed after each individual test
+	@After
+	public void tearDown() throws Exception 
+	{
+		db.deleteAllRecords();
+	}
+
+	@Test
+	public void testGetAllRecords() 
+	{
+		try 
+		{
+			db.getAllRecords();
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			fail("Getting all records on empty database should not generate SQLException");
+		}
+		
+	}
+
+	@Test
+	public void testGetRecord() 
+	{
+		try
+		{
+			db.getRecord("1");
+		}
+		catch (SQLException e)
+		{
+			fail("Getting a record should not generate SQLException");
+		}
+	}
+
+	@Test
+	public void testGetRecordCount() 
+	{
+		try 
+		{
+//			assertTrue("Testing creation of billionaire with id provided", db.createRecord(FIELD_NAMES, values));
+//			assertEquals("Testing the count of records.", 1, db.getRecordCount());
+			db.getRecordCount();
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			fail("Creation of records should not generate an SQLException");
+		}
+	}
+
+	@Test
+	public void testCreateRecord() 
+	{
+		try 
+		{
+			assertTrue("Testing creation of billionaire with id provided", db.createRecord(FIELD_NAMES, values));
+			//assertEquals("Testing the count of records.", 1, db.getRecordCount());
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			fail("Creation of records should not generate an SQLException");
+		}
+		
+//		try
+//		{
+//			db.createRecord(FIELD_NAMES, values);
+//			fail("Creating a record with duplicate id should generate a SQLException.");
+//		}
+//		catch(SQLException e)
+//		{
+//			// Expected
+//		}
+	}
+
+	@Test
+	public void testUpdateRecord() 
+	{
+		try
+		{
+			db.updateRecord("5", FIELD_TYPES, FIELD_NAMES);
+		}
+		catch (SQLException e)
+		{
+			fail("Updating records should not generate an SQLException")
+		}
+	}
+
+	@Test
+	public void testDeleteAllRecords() 
+	{
+		try
+		{
+			db.createRecord(Arrays.copyOfRange(FIELD_NAMES, 1, FIELD_NAMES.length), 
+					Arrays.copyOfRange(values, 1, values.length));
+			assertTrue("Before deletion, count should be positive", db.getRecordCount() > 0);
+			db.deleteAllRecords();
+			assertEquals("Count after deletion should be 0.", 0, db.getRecordCount());
+		}
+		catch (SQLException e)
+		{
+			fail("Deletion should not generate an SQLException");
+		}
+	}
+
+	@Test
+	public void testDeleteRecord() 
+	{
+		try
+		{
+			db.createRecord(Arrays.copyOfRange(FIELD_NAMES, 1, FIELD_NAMES.length), 
+					Arrays.copyOfRange(values, 1, values.length));
+			assertTrue("Before deletion, count should be positive", db.getRecordCount() > 0);
+			db.deleteRecord("1");
+		}
+		catch (SQLException e)
+		{
+			fail("Deletion should not generate an SQLException");
+		}
+	}
+
+}

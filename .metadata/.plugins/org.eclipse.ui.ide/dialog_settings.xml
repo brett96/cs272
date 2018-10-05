@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="660" key="DIALOG_WIDTH"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="419" key="DIALOG_HEIGHT"/>
+		<item value="5670" key="DIALOG_X_ORIGIN"/>
+		<item value="396" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+			<item value="C:\Users\Brett Tomita\workspace\IC01_AbstractInheritance"/>
+			<item value="C:\Users\Brett Tomita\workspace\IC01_JavaArrays"/>
+			<item value="C:\Users\Brett Tomita\workspace\IC01_JavaMechanics"/>
+			<item value="D:\CS 272\IC01_AbstractInheritance"/>
+			<item value="D:\CS 272\IC01_JavaArrays"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\Brett\Downloads\IC15_VGInventory.zip"/>
+			<item value="C:\Users\Brett\Downloads\IC14_VGInventory.zip"/>
+			<item value="C:\Users\Brett\Downloads\IC14_Inventory.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC12_URLReader.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC12_CarEfficiency.zip"/>
+			<item value="C:\Users\Brett\Downloads\IC10_Billionaires.zip"/>
+			<item value="D:\CS 272\P03_BallMovementFX.zip"/>
+			<item value="D:\CS 272\P03_TargetHeartRateFX.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC09_Java2PeopleFX.zip"/>
+			<item value="C:\Users\Brett Tomita\Downloads\CS272_Midterm_Part01.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\CS 242 Power Points\IC08_TipCalculatorFX.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC06_DefensiveHotel.zip"/>
+			<item value="C:\Users\Brett Tomita\Downloads\IC04_Exceptions.zip"/>
+			<item value="C:\Users\Brett Tomita\Downloads\IC04_FileSystem.zip"/>
+			<item value="C:\Users\Brett Tomita\Downloads\IC04_InterfacesAbstractClasses.zip"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

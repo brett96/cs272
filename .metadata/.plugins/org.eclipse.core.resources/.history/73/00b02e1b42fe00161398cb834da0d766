@@ -1,0 +1,19 @@
+
+public class RecursiveBases {
+
+	public static String decimal2Binary(int value)
+	{
+		if(value < 1) return "";
+		
+		int quotient = value / 2;
+		int remainder = value % 2;
+		return String.valueOf(remainder) + decimal2Binary(quotient);
+	}
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}

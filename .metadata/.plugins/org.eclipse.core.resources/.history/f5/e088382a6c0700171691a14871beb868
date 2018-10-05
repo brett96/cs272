@@ -1,0 +1,18 @@
+package edu.orangecoastcollege.cs272.p02;
+
+public class Pellet extends Character 
+{
+	public void move(Board board)
+	{
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Pellet [mRow=" + mRow + ", mCol=" + mCol + ", getRow()=" + getRow() + ", getCol()=" + getCol()
+				+ ", hashCode()=" + hashCode() + ", getClass()=" + getClass() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
+	
+}

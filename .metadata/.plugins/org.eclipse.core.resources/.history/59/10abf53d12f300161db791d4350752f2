@@ -1,0 +1,15 @@
+public class WaterBottle 
+{
+	public void shed(boolean time){
+		String result = "done";
+		if(time){
+			
+		}
+		System.out.println(result);
+	}
+	
+	public static void main(String[] args)
+	{
+		shed(true);
+	}
+}

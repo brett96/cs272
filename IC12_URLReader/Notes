@@ -1,0 +1,10 @@
+TextField = single line of input
+TextArea
+	- Node used for multi-line text input/output
+	- Automatically scrollable
+URL = Uniform Resource Locator
+
+HTTP Response Codes
+	- 200 = HTTP OK
+	- 400 level = client errors(404 = not found)
+	- 500 level = Server errors

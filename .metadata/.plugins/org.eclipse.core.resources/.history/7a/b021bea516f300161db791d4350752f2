@@ -1,0 +1,8 @@
+public class WaterBottle
+{
+	public static void main(String[] name)
+	{
+		int i1 = 1_234;
+		double d4 = 1_234.0;
+	}
+}

@@ -1,0 +1,40 @@
+package edu.orangecoastcollege.cs272.p02;
+import java.util.Random;
+
+public class Rodent extends Character 
+{
+	Random random = new Random();
+	public void move(Board board)
+	{
+		// Move rodent randomly: generate random row: randomly generate row/col
+		/*
+		 * 1 = up
+		 * 2 = down
+		 * 3 = left
+		 * 4 = right
+		 * 5 = diagonal up left
+		 * 6 = diagonal up right
+		 * 7 = diagonal down left
+		 * 8 = diagonal down right
+		 */
+		int direction = random.nextInt(8) + 1;
+		switch(direction)
+		{
+		case 1:
+			if(this.getRow() == 0) this.setRow(board.mRowSize);
+			else this.setRow(this.getRow() + 1);
+			break;
+		case 2:
+			if(this.getRow() == board.mRowSize) this.setRow(0);
+			break;
+			
+		}
+	}
+	
+	@Override
+	public String toString()
+	{
+		return"R";
+	}
+	
+}

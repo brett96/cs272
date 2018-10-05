@@ -1,0 +1,33 @@
+package edu.orangecoastcollege.cs272.btomita.ic01;
+
+public class Triangle extends Shape2D
+{
+	public int base;
+	public int height;
+	
+	public void setBase(int value)
+	{
+		base = value;
+	}
+	
+	public void setHeight(int value)
+	{
+		height = value;
+	}
+	
+	public Triangle(int xVal, int yVal, String c, int b, int h)
+	{
+		x = xVal;
+		y = yVal;
+		color = c;
+		base = b;
+		height = h;
+	}
+	
+	public double calculateArea()
+	{
+		return 0.5*base*height;
+	}
+	
+	
+}

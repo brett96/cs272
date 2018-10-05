@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;IC07_HoorayList&apos;&#x0D;&#x0A;- Original project: &apos;IC07_HoorayList&apos;&#x0D;&#x0A;- Original element: &apos;IC07_HoorayList/src/du.orangecoastcollege.cs272.btomita.ic07&apos;" description="Delete element" element1="/src&lt;du.orangecoastcollege.cs272.btomita.ic07" element2="/src&lt;du.orangecoastcollege.cs272.btomita" element3="/src&lt;du.orangecoastcollege.cs272" element4="/src&lt;du.orangecoastcollege" element5="/src&lt;du" elements="5" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1489542942967" subPackages="false" version="1.0"/>
+</session>

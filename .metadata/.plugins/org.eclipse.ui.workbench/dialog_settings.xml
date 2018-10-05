@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="177" key="DIALOG_X_ORIGIN"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="EditorSelectionDialog">
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="-1" key="dialogHeight"/>
+		<item value="-1" key="dialogWidth"/>
+		<list key="textEntries">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.export.ZipFile" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.equinox.p2.category"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+			<item value="org.eclipse.debug.ui"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Brett\Desktop\IC15_VGInventory_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\CS 272 Capstone Project.zip"/>
+			<item value="C:\Users\Brett\Desktop\capstone.zip"/>
+			<item value="C:\Users\Brett\Desktop\ic14.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC13_WXObserver_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC13_RSSReader_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC12_URLReader_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC12_CarEfficiency_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC11_TestBillionaires_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC11_TestCarEfficiency_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\(C11_TestBillionaires_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC10_CarEfficiency_Complete.zip"/>
+			<item value="C:\Users\Brett\Desktop\IC10_Billionaires_Complete.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC08_TipCalculatorFX_Complete.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC07_ControlCircleFX_Complete.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC07_LoanCalculatorFX_Complete.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC07_HoorayListComplete.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC06_DefensiveHotel.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC06_UserFlowFX.zip"/>
+			<item value="C:\Users\Brett Tomita\Desktop\IC05_RecursiveFileSystemComplete.zip"/>
+		</list>
+	</section>
+</section>

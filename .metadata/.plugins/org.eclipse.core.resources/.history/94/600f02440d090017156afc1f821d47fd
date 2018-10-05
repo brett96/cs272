@@ -1,0 +1,55 @@
+package edu.orangecoastcollege.cs272.ic06;
+
+public class Room 
+{
+	private int mNumber;
+	private String mCapacity;
+	private RoomType mRoomType;
+	
+	public int getNumber() 
+	{
+		return mNumber;
+	}
+	public String getCapacity() 
+	{
+		return mCapacity;
+	}
+	public RoomType getRoomType() 
+	{
+		return mRoomType;
+	}
+	
+	public Room(int mNumber, String mCapacity, RoomType mRoomType)
+	{
+		this.mNumber = mNumber;
+		this.mCapacity = mCapacity;
+		this.mRoomType = mRoomType;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((mCapacity == null) ? 0 : mCapacity.hashCode());
+		result = prime * result + mNumber;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Room other = (Room) obj;
+		if (mCapacity == null) {
+			if (other.mCapacity != null)
+				return false;
+		} else if (!mCapacity.equals(other.mCapacity))
+			return false;
+		if (mNumber != other.mNumber)
+			return false;
+		return true;
+	}
+}

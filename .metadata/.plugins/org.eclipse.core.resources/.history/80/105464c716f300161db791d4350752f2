@@ -1,0 +1,7 @@
+public class WaterBottle
+{
+	public static void main(String[] name)
+	{
+		int amount = 0b101;
+	}
+}

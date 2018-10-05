@@ -1,0 +1,59 @@
+package edu.orangecoastcollege.cs272.btomita.ic02;
+
+public class Coffee extends CaffeinatedBeverage
+{
+    public int mRoastType;
+
+    public int getRoastType()
+    {
+        return mRoastType;
+    }
+
+    public void setRoastType(int roastType)
+    {
+        this.mRoastType = roastType;
+    }
+    
+    public Coffee(String mName, int mOunces, double mPrice, int mRoastType)
+    {
+        this.mName = mName;
+        this.mOunces = mOunces;
+        this.mPrice = mPrice;
+        this.mRoastType = mRoastType;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + mRoastType;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        Coffee other = (Coffee) obj;
+        if (mRoastType != other.mRoastType) return false;
+        return true;
+    }
+
+    @Override
+    public String toString()
+    {
+        String mRoast;
+        if(mRoastType == 1)
+            mRoast = "light roast";
+        else if(mRoastType == 2)
+            mRoast = "medium roast";
+        else
+            mRoast = "dark roast";
+        
+        return String.format("[Coffee: %s, %,1, $%1.2f, %s]", mName,  mOunces, mPrice, mRoastType);
+    }
+    
+}

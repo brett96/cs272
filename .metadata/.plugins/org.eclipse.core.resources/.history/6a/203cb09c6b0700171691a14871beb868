@@ -1,0 +1,71 @@
+package edu.orangecoastcollege.cs272.p02;
+
+import java.util.Scanner;
+
+public class Player extends Character 
+{
+	public void move(Board board)
+	{
+		System.out.println("WHat action would you like the player to take? \nU: Move up"
+				+ "\nD: Move Down\nL: Move Left\nR: Move Right\nP: Pellet");
+		Scanner input = new Scanner(System.in);
+		String choice = input.next();
+		choice = choice.toLowerCase();
+		if(choice == "u")
+		{
+			if(this.mRow == 0) 
+			{
+				System.out.println("Player cannot currently move up and loses a turn.");
+			}
+			else
+			{
+				// Move player up
+			}
+		}
+		else if(choice == "d")
+		{
+			if(board.mRowSize == this.mRow) 
+			{
+				System.out.println("Player cannot currently move down and loses a turn.");
+			}
+			else
+			{
+				// Move player down
+			}
+		}
+		else if(choice == "l")
+		{
+			if(this.mCol == 0) 
+			{
+				System.out.println("Player cannot currently move left and loses a turn.");
+			}
+			else
+			{
+				// Move player left
+			}
+		}
+		else if(choice == "r")
+		{
+			if(player.mCol == board.mColSize) 
+			{
+				System.out.println("Player cannot currently move right and loses a turn.");
+			}
+			else
+			{
+				// Move player down
+			}
+		}
+		else if(choice == "p")
+		{
+			//drop pellet at current row & column; don't move
+		}
+		else
+			System.out.println("Unrecognized action, please enter U, D, L, R, or P.  Player loses turn");
+	}
+	
+	@Override
+	public String toString()
+	{
+		
+	}
+}

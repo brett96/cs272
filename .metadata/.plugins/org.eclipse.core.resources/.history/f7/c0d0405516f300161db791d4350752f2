@@ -1,0 +1,12 @@
+public class WaterBottle
+{
+	public static void main(String[] name)
+	{
+		boolean isTrue;
+		int num;
+		double nums;
+		String s;
+		char c;
+		System.out.println(isTrue + " " + num + " " + nums + " " + s + " " + c);
+	}
+}

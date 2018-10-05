@@ -1,0 +1,7 @@
+public class WaterBottle
+{
+	public static void main(String[] name)
+	{
+		System.out.println(name[1]);
+	}
+}

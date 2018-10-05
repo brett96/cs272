@@ -1,0 +1,38 @@
+package edu.orangecoastcollege.cs272.btomita.ic01;
+
+public class AbstractInheritance
+{
+
+    public static void main(String[] args)
+    {
+        // TODO Auto-generated method stub
+    	Rectangle rectangle = new Rectangle(0, 0, 5, 4);
+    	rectangle.toString(5, 4);
+    }
+
+}
+
+//public class Rectangle extends Shape2D
+//{
+//    int width;
+//    int height;
+//    public void setWidth(int value)
+//    {
+//        width = value;
+//    }
+//    public int getWidth()
+//    {
+//        return width;
+//    }
+//    public Rectangle(int x, int y, String color, int width, int height)
+//    {
+//        
+//    }
+//    public double calculateArea();
+//    {
+//        return width*height;
+//    }
+//    public boolean equals()
+//    {
+//    }
+//}

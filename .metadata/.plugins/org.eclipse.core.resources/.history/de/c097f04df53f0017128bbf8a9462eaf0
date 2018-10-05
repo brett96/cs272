@@ -1,0 +1,59 @@
+package edu.orangecoastcollege.cs272.btomita.capstone.test;
+
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import edu.orangecoastcollege.cs272.btomita.capstone.model.DBModel;
+
+public class DBModelTest {
+	
+	private static final String DB_NAME = "cs272_test.db";
+    private static final String TABLE_NAME = "oc";
+    private static final String[] FIELD_NAMES = { "id", "name", "price", "reviews", "category", "street", "city", "phone", "site" };
+    private static final String [] FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "INTEGER", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" };
+    
+    private static DBModel db;
+    
+    private String[] values;
+    
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception 
+	{
+		db = new DBModel(DB_NAME, TABLE_NAME, FIELD_NAMES, FIELD_TYPES);
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception 
+	{
+		db.close();
+	}
+
+	@Before
+	public void setUp() throws Exception 
+	{
+		//values = new String[] {"1", ""
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testGetRecord() 
+	{
+		try
+		{
+			db.createRecord(Arrays.copyOfRange(FIELD_NAMES, 1, FIELD_NAMES.length), Arrays.copyOfRange(values, 1, values.length));
+		}
+		fail("Not yet implemented");
+	}
+
+}

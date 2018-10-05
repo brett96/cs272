@@ -1,0 +1,53 @@
+package edu.orangecoastcollege.cs272.btomita.capstone.view;
+
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+
+public class ViewYelp 
+{
+	Button backButton = new Button("Back");
+	Button directionsButton = new Button("Get Directions");
+	backButton.setOnAction(e -> back());
+	directionsButton.setOnAction(e -> getDirections());
+	WebView browser = new WebView();
+	WebEngine webEngine = browser.getEngine();
+	if(restaurantsLV.getSelectionModel().isEmpty()) 
+	{
+		selectedRestaurant = returnRestaurant();
+		if (selectedRestaurant == null) {
+			// Display alert to user (no restaurants found)
+			return;
+		}
+	}
+	else
+		selectedRestaurant = restaurantsLV.getSelectionModel().getSelectedItem();
+	webEngine.load(selectedRestaurant.getSite());
+	
+	//Scene yelpScene = new Scene(webEngine, 1000, 800, Color.web("#666970"));//createYelpScene();
+	GridPane pane = new GridPane();
+	browser.setPrefSize(1100, 700);
+	pane.add(browser, 0, 1);
+	pane.setVgap(10);
+//	pane.setHgap(10);
+	pane.setPadding(new Insets(10, 10, 10, 10));
+	HBox box = new HBox();
+	box.getChildren().add(backButton);
+	box.getChildren().add(directionsButton);
+	box.setSpacing(5);
+	pane.add(box, 0, 2);
+	//pane.add(directionsButton, 1, 2);
+	//pane.setAlignment(Pos.BASELINE_CENTER);
+	Scene yelpScene = new Scene(pane, 1100, 750, Color.web("#666960"));
+//	mainStage.setTitle("Yelp");
+//	mainStage.setScene(yelpScene);
+	//mainStage.setTitle("Yelp");
+	//mainStage.show();
+	ViewNavigator.setStage(mainStage);
+	ViewNavigator.loadScene("Yelp", yelpScene);
+}

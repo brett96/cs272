@@ -1,0 +1,48 @@
+ListView 
+	- Node for visualizing contents of a list
+	- Can select, add, remove, and edit items
+	- Does not store data
+	
+ObservableList 
+	- Collection that stores data
+	- Must use ListView & ObservableList together
+	- Automatically updates ListView
+	- Backed by ArrayList
+	
+SQLite 
+	- Small, lightweight, and portable database
+	- Cross platform
+	- Precompiled into jar file (JAR = Java ARchive = precompiled class files)
+	
+Data Type Conversions
+	- SQLite
+		- int = INTEGER
+		- double = REAL
+		- char = TEXT
+		- String = TEXT
+		- boolean = INTEGER
+		- BLOB = Binary Large OBject
+			- For pics, vids, etc.
+			
+SQL = Structured Query Language
+
+Record - One row in a database
+
+Field - One column in a database
+
+Table - Like a spreadsheet (all records and fields)
+
+Primary Key - Field that uniquely identifies each record
+
+- Add jar to lib folder
+- Right click lib folder -> Build Path -> Add to Build Path
+
+SQL Statements - Commands issued to database
+	- Create statement - to build new database tables
+		- "CREATE TABLE people(id PRIMARY KEY INTEGER, name TEXT)
+	- Insert Statement - adds a new record (row) to database
+		- INSERT INTO people VALUES(1, 'Mike')
+	- Select Statement - Query database to extract records matching criteria
+		- SELECT name FROM people (to select all, use '*' wildcard)
+		- SELECT name FROM people WHERE id = 2
+		

@@ -1,0 +1,248 @@
+package edu.orangecoastcollege.cs272.btomita.capstone.view;
+import java.util.Random;
+
+import edu.orangecoastcollege.cs272.btomita.capstone.controller.Controller;
+
+import edu.orangecoastcollege.cs272.btomita.capstone.model.Restaurant;
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.VPos;
+import javafx.scene.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
+
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+public class ViewFX extends Application 
+{
+	Scene mainScene;
+	ComboBox<String> categoriesCB;
+	ComboBox<String> cityCB;
+	Slider minPriceSlider = new Slider(1, 5, 0);
+	Slider maxPriceSlider = new Slider(1, 5, 0);
+	Slider reviewsSlider = new Slider(0, 1000, 0);
+	ListView<Restaurant> restaurantsLV = new ListView<>();
+	
+	final WebView browser = new WebView();
+    final WebEngine webEngine = browser.getEngine();
+	
+	Stage mainStage;
+	Restaurant selectedRestaurant;
+	ObservableList<Restaurant> restaurantsList;
+	ObservableList<String> categoriesList;
+	ObservableList<String> priceList;
+	ObservableList<String> cityList;
+	Controller controller = Controller.getInstance();
+	Button nextButton = new Button("Next");
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception 
+	{
+		// TODO Auto-generated method stub
+		mainStage = primaryStage;
+		restaurantsList = controller.getAllRestaurants();
+		categoriesList = controller.getDistinctCategories();
+		priceList = controller.getDistinctPrices();
+		cityList = controller.getDistinctCities();
+		nextButton.setDisable(true);
+		
+		mainScene = createMainScene();
+		mainStage.setTitle("Food Finder");
+		mainStage.setScene(mainScene);
+		mainStage.show();
+	}
+	
+	//privae StringConverter<Double> dollars
+	
+	private Scene createMainScene()
+	{
+		restaurantsLV.setItems(restaurantsList);
+		restaurantsLV.setPrefWidth(1000);
+		restaurantsLV.setOnMouseClicked(e -> selectRestaurant());
+		
+		categoriesCB = new ComboBox<>(categoriesList);
+		categoriesCB.setOnAction(e -> filter());
+		cityCB = new ComboBox<>(cityList);
+		cityCB.setOnAction(e -> filter());
+		
+		minPriceSlider.setShowTickMarks(true);
+		minPriceSlider.setShowTickLabels(true);
+		minPriceSlider.setSnapToTicks(true);
+		minPriceSlider.setLabelFormatter(new StringConverter<Double>(){
+			@Override
+			public String toString(Double n){
+				if(n == 1) return "$";
+				if(n == 2) return "$$";
+				if(n == 3) return "$$$";
+				if(n == 4) return "$$$$";
+				return "$$$$$";
+			}
+
+			@Override
+			public Double fromString(String arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		});
+		minPriceSlider.setMajorTickUnit(1.0);
+		minPriceSlider.setBlockIncrement(1.0);
+		minPriceSlider.setMinorTickCount(0);
+		minPriceSlider.setOnMouseDragged(e -> filter());
+		minPriceSlider.setOnMouseClicked(e -> filter());
+		
+		maxPriceSlider.setShowTickMarks(true);
+		maxPriceSlider.setShowTickLabels(true);
+		maxPriceSlider.setValue(5);
+		maxPriceSlider.setMajorTickUnit(1.0);
+		maxPriceSlider.setBlockIncrement(1.0);
+		maxPriceSlider.setSnapToTicks(true);
+		maxPriceSlider.setMinorTickCount(0);
+		maxPriceSlider.setOnMouseDragged(e -> filter());
+		maxPriceSlider.setOnMouseClicked(e -> filter());
+		maxPriceSlider.setLabelFormatter(new StringConverter<Double>(){
+			@Override
+			public String toString(Double n){
+				if(n == 1) return "$";
+				if(n == 2) return "$$";
+				if(n == 3) return "$$$";
+				if(n == 4) return "$$$$";
+				return "$$$$$";
+			}
+
+			@Override
+			public Double fromString(String arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		});
+		
+		reviewsSlider.setShowTickMarks(true);
+		reviewsSlider.setShowTickLabels(true);
+		reviewsSlider.setMajorTickUnit(100.0);
+		reviewsSlider.setBlockIncrement(10.0);
+		reviewsSlider.setOnMouseDragged(e -> filter());
+		reviewsSlider.setOnMouseClicked(e -> filter());
+		
+		nextButton.setOnAction(e -> viewYelp());
+		
+		GridPane pane = new GridPane();
+		pane.setVgap(10);
+		pane.setPadding(new Insets(10, 10, 10, 10));
+		pane.add(new Label("Filters:"),  0, 0);
+		pane.add(new Label("Categories:"), 0, 1);
+		pane.add(categoriesCB,  1, 1);
+		
+		pane.add(new Label("City:"), 0, 2);
+		pane.add(cityCB, 1, 2);
+		
+		pane.add(new Label("Min Price:"), 0, 3);
+		pane.add(minPriceSlider, 1, 3);
+		
+		pane.add(new Label("Max Price:"), 0, 4);
+		pane.add(maxPriceSlider, 1, 4);
+		
+		pane.add(new Label("Minimum Reviews: "), 0, 5);
+		pane.add(reviewsSlider, 1, 5);
+		
+		pane.add(restaurantsLV, 0, 6, 2, 1);
+		pane.add(nextButton, 0, 7);
+		
+		return new Scene(pane, 1050, 600);
+	}
+	
+//	private Scene createYelpScene()
+//	{
+//		Browser browser = new Browser();
+//		//webEngine.load("www.yelp.com");
+//		Scene webScene = new Scene(browser, 1000, 800, Color.web("#666970"));
+//		return webScene;
+//	}
+	
+	private void viewYelp()
+	{
+		WebView browser = new WebView();
+		WebEngine webEngine = browser.getEngine();
+		selectedRestaurant = filter();
+		webEngine.load(selectedRestaurant.getSite());
+		
+		//Scene yelpScene = new Scene(webEngine, 1000, 800, Color.web("#666970"));//createYelpScene();
+		Scene yelpScene = new Scene(browser, 1000, 750, Color.web("#666960"));
+		mainStage.setScene(yelpScene);
+		mainStage.setTitle("Yelp");
+		mainStage.show();
+	}
+	
+	private void selectRestaurant()
+	{
+		selectedRestaurant = restaurantsLV.getSelectionModel().getSelectedItem();
+		nextButton.setDisable(false);
+	}
+	
+	private Restaurant filter()
+	{
+		restaurantsList = controller.filter((int) minPriceSlider.getValue(), (int) maxPriceSlider.getValue(), (int) reviewsSlider.getValue(), 
+				cityCB.getSelectionModel().getSelectedItem(), categoriesCB.getSelectionModel().getSelectedItem());
+		restaurantsLV.setItems(restaurantsList);
+		
+		int length = restaurantsList.size();
+		Random rng = new Random();
+		int randPlace = rng.nextInt(length);
+		
+		return restaurantsList.get(randPlace);
+	}
+	
+	public static void main(String[] args)
+	{
+		Application.launch(args);
+	}
+
+}
+
+
+class Browser extends Region {
+ 
+	 
+    final WebView browser = new WebView();
+    final WebEngine webEngine = browser.getEngine();
+     
+    public Browser() {
+        //apply the styles
+        getStyleClass().add("browser");
+        // load the web page
+        webEngine.load("www.yelp.com");
+        //add the web view to the scene
+        getChildren().add(browser);
+ 
+    }
+    private Node createSpacer() {
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+        return spacer;
+    }
+ 
+    @Override protected void layoutChildren() {
+        double w = getWidth();
+        double h = getHeight();
+        layoutInArea(browser,0,0,w,h,0, HPos.CENTER, VPos.CENTER);
+    }
+ 
+    @Override protected double computePrefWidth(double height) {
+        return 750;
+    }
+ 
+    @Override protected double computePrefHeight(double width) {
+        return 500;
+    }
+}

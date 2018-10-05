@@ -1,0 +1,18 @@
+
+public class RecursiveBases {
+
+	public static String decimal2Binary(int value)
+	{
+		if(value < 1) return "";
+		
+		decimal2Binary(value%2);
+		return (str)value % 2;
+	}
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}

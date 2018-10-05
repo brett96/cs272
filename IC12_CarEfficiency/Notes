@@ -1,0 +1,9 @@
+JavaFX Terminology
+	- List View = box that shows database
+	- Stage = entire window
+		- From Start method
+		- Stage mainStage = primary stage; stage that handles all stages
+
+2 Scenes:
+	1. mainScene = shows cars, filters, delete, reset
+	2. addCarScene = new scene to add car to database & ObservableList

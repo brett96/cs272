@@ -1,0 +1,29 @@
+Array = Ordered collection of elements under same data type
+	- Memory is allocated contiguously
+	- Advantages: fast access
+	- Disadvantages: fixed in size; cannot add or remove
+	
+ArrayList = Ordered collection of elements under same data type
+	- Unspecified size = size 10 (indexes 0-9)
+	Empty ArrayList named "names" w/ unspecified size:
+		- Capacity = 10
+		- Size = 0
+		- names.add("Mike") : size++; adds "Mike" to names[0]
+		- If indexes 1,2,3 are occupied and you remove index 2, index 3 shifts to index 2
+		
+public class HoorayList<E>		T = type,  E = Element
+{
+	private int mCapacity;	capacity = number of elements that can be stored
+	private int mSize;		size = number of elements stored (size always <= capacity)
+	private E[] mData;
+	public HoorayList(int initialCapacity)
+	{
+		
+	}
+	
+	public HoorayList()
+	{
+	}
+}
+		
+		

@@ -1,0 +1,143 @@
+package edu.orangecoastcollege.cs272.p02;
+
+import java.util.*;
+
+public class Board 
+{
+	Player mPlayer;
+	List<Rodent> mRodentsList = new ArrayList<Rodent>();
+	List<Pellet> mPelletsList = new ArrayList<Pellet>();
+	int mRowSize;
+	int mColSize;
+	
+	public Board(int rowSize, int colSize, int numRodents)
+	{
+		super();
+		this.mRowSize = rowSize;
+		this.mColSize = colSize;
+		
+		Player player = new Player();
+		mPlayer = player;
+		mPlayer.setRow(mRowSize - 1);
+		mPlayer.setCol(mColSize - 1);
+		
+		while(numRodents > 0)
+		{
+			Rodent rodent = new Rodent();
+			Random random = new Random();
+			rodent.setCol(random.nextInt(mColSize));
+			rodent.setRow(random.nextInt(mRowSize));
+			mRodentsList.add(rodent);
+			numRodents--;
+		}
+	}
+	
+	public void addPellet(int row, int col)
+	{
+		Pellet pellet = new Pellet();
+		mPelletsList.add(pellet);
+	}
+	
+	public boolean isInBounds(int row, int col)
+	{
+		if((row >= 0 && col >= 0) && (row < mRowSize && col < mColSize))
+			return true;
+		return false;
+	}
+	
+	public boolean isPlayerAlive()
+	{
+		if(mPlayer == null) return false;
+		return true;
+	}
+	
+	public boolean isGameOver()
+	{
+		if(isPlayerAlive() == false) return true;
+		if(mRodentsList.size() == 0) return true;
+		return false;
+	}
+	
+	public void moveAllCharacters()
+	{
+		mPlayer.move(this);
+		
+		//for(Rodent rodent : mRodentsList)
+		for(Iterator<Rodent> rodents = mRodentsList.iterator(); rodents.hasNext(); )
+		{
+			Rodent rodent = rodents.next();
+			rodent.move(this);
+			if(rodent.getCol() == mPlayer.getCol() && rodent.getRow() == mPlayer.getRow())
+				mPlayer = null;
+			for(Pellet pellet : mPelletsList)
+			{
+				if(rodent.getCol() == pellet.getCol() && rodent.getRow() == pellet.getRow())
+				{
+					iterator.remove();
+				}
+			}
+		}
+	}
+	
+	public int countRodents(List<Rodent> mRodentsList, int row, int col)
+	{
+		int count = 0;
+		for(Rodent rodent : mRodentsList)
+		{
+			if(rodent.getRow() == row && rodent.getCol() == col) count++;
+		}
+		return count;
+	}
+	
+	public boolean isPellet(List<Pellet> pelletsList, int row, int col)
+	{
+		boolean result = false;
+		
+		for(Pellet pellet : pelletsList)
+		{
+			if(pellet.getRow() == row && pellet.getCol() == col)
+			{
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String result = "";
+		for(int row = 0; row < mRowSize; row++)
+		{
+			for(int col = 0; col < mColSize; col++)
+			{
+				if(mPlayer.getRow() == row && mPlayer.getCol() == col) 
+				{
+					result +="P";
+					continue;
+				}
+				int rodents = this.countRodents(mRodentsList, row, col);
+				if(rodents != 0)
+				{
+					if(rodents == 1) result += "R";
+					else result += rodents;
+					continue;
+				}
+				if(this.isPellet(mPelletsList, row, col)) 
+				{
+					result += "*";
+					continue;
+				}
+				result += ".";
+			}
+			result+="\n";
+		}
+		
+		int rodentsLeft = mRodentsList.size();
+		result += "\n" + rodentsLeft + " rodents left to evict.";
+		
+		return result;
+	}
+}

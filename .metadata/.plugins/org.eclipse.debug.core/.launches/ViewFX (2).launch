@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/IC11_TestBillionaires/src/edu/orangecoastcollege/cs272/ic11/view/ViewFX.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.orangecoastcollege.cs272.ic11.view.ViewFX"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="IC11_TestBillionaires"/>
+</launchConfiguration>

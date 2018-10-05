@@ -1,0 +1,35 @@
+MVC Design for VG Inventory
+	model <--> controller <--> view
+	- Model
+		- DBModel
+		- User
+		- VideoGame (User + VideoGame = Business Logic)
+	- Controller
+		- Controller
+	- View
+		- SignInScene.fxml -> user interface (design)
+		- SignInScene.java -> actions (button clicks, combo box, drop down)
+			- Controller controller (db requests)
+			
+Relational Database:
+	- 3 tables == 3 DBModels
+	- User table
+		- Primary key: id INTEGER
+		- name TEXT
+		- email TEXT
+		- password TEXT
+	- Video Game table
+		- Primary key: id INTEGER
+		- name TEXT
+		- platform TEXT
+		- publisher TEXT
+		- year INTEGER
+		
+	- Relationship table
+		- Do not have primary keys
+			- have foreign keys
+				- connection to primary key of another table
+		- user-video game
+			- Stores:
+				- user-id INTEGER
+				- game-id INTEGER
