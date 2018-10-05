@@ -1,0 +1,26 @@
+Model View Controller (MVC)
+	- A way to architect software / Design Pattern
+	- "Model" examples:
+		- Data
+		- Files
+		- CSV / text
+		- Business Logic
+		- Back-end
+	- "View" examples
+		- User Interface
+			- GUI
+			- Text
+		- Presents data visually
+		- Front-end
+		- i.e. JavaFX
+	- "Controller"
+		- Mechanism to take input from view and produce output from the model
+		- Only one controller
+		- Singleton
+			- Constructor can make at most one object/controller
+			- Ensures only one object will ever be made from a class
+				- i.e. "static"
+			- Make private constructor
+			- Method named "getInstance"
+				- returns reference to static instance
+			- Google gang of 4

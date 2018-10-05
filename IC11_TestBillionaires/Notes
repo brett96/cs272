@@ -1,0 +1,32 @@
+Unit Testing
+	- Process of writing automated tests to verify the functionality of code modules (methods)
+	
+	- Types of Unit Testing
+		1. White box
+			- Have access to codebase; testing and refactoring (fixing)
+		2. Black box
+			- Don't have access; using API (.jar file)
+		3. Regression 
+			- Process of adding new features & verifying old tests don't fail
+			
+Agile Methodology
+	- Test Driven Development (TDD)
+		- Write tests before writing code
+		- When all tests pass, code is complete
+
+Billionaires Database:
+	- Create table: CREATE TABLE IF NOT EXISTS billionaire(id INTEGER PRIMARY KEY, name TEXT,..., political INT)
+	- Java Method:
+		public void createTable(String tableName, String[] fields, String[] types)
+		{
+			StringBuilder createSQL = new StringBuilder("CREATE TABLE IF NOT EXISTS ");
+		}
+		
+JUnit Assertions - Verifying claim in code
+	1. assertTrue(message about what is being done, test condition (boolean));
+		- assertTrue("Creating a single record.", db.createRecord(fields, values));
+	2. assertFalse(String message, boolean condition);
+	3. assertEquals(String message, expected value, actual condition);
+		- assertEquals("Testing record count.", 1, db.getRecordCount());
+	4. fail(String message);
+	

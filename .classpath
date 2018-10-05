@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="IC01_AbstractInheritance/src"/>
+	<classpathentry kind="src" path="IC01_JavaArrays/src"/>
+	<classpathentry kind="src" path="IC01_JavaMechanics/src"/>
+	<classpathentry kind="src" path="IC02_CaffeinatedBeverage/src"/>
+	<classpathentry kind="src" path="IC03_CatComparable/src"/>
+	<classpathentry kind="src" path="IC03_ValuationInterface/src"/>
+	<classpathentry kind="src" path="IC09_QuizCreator/src"/>
+	<classpathentry kind="src" path="P01_Slicing/src"/>
+	<classpathentry kind="src" path="P03_TargetHeartRateFX/src"/>
+	<classpathentry kind="lib" path="IC09_QuizCreator/lib/sqlite-jdbc-3.16.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="IC01_AbstractInheritance/bin"/>
+</classpath>
